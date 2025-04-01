@@ -7,8 +7,8 @@ jobs:
     container:
       image: jani888/gitea-runner:latest
     steps:
-      - run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login gitea.dineease.com -u ${{secrets.REGISTRY_USER}} --password-stdin
+      - run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login gitea.sudsy.com -u ${{secrets.REGISTRY_USER}} --password-stdin
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: docker build . -t gitea.dineease.com/competitors/${{gitea.event.repository.name}}:latest
-      - run: docker push gitea.dineease.com/competitors/${{gitea.event.repository.name}}:latest
+      - run: docker build . -t gitea.sudsy.com/competitors/${{gitea.event.repository.name}}:latest
+      - run: docker push gitea.sudsy.com/competitors/${{gitea.event.repository.name}}:latest
